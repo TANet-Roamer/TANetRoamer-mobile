@@ -1,0 +1,8 @@
+/**
+ * @flow
+ */
+
+export const SET_ACCOUNT = 'ACCOUNT/SET_ACCOUNT'
+export const FETCH_ACCOUNT = 'ACCOUNT/FETCH_ACCOUNT'
+export const STORE_ACCOUNT = 'ACCOUNT/STORE_ACCOUNT'
+export const CLEAR_ACCOUNT = 'ACCOUNT/CLEAR_ACCOUNT'

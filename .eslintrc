@@ -1,0 +1,45 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "flowtype"
+  ],
+  "extends" : [
+    "standard",
+    "standard-react"
+  ],
+  "env"     : {
+    "browser" : true,
+    "node": true,
+    "jest": true,
+    "jasmine": true
+  },
+  "globals" : {
+    "API_HEADER"   : false,
+    "__DEV__"      : false,
+    "__PROD__"     : false,
+    "__DEBUG__"    : false,
+    "__COVERAGE__" : false,
+    "__BASENAME__" : false
+  },
+  "rules": {
+    "semi" : [2, "never"],
+    "space-before-function-paren" : [2, "never"],
+    "generator-star-spacing": [2, "after"],
+    "yield-star-spacing": [2, "after"],
+    "arrow-parens": [0, "as-needed"],
+    "quotes": [2, "single", {"avoidEscape": true, "allowTemplateLiterals": true}],
+    "no-var": 2,
+    "prefer-const": 2,
+    "prefer-reflect": 2,
+    "react/jsx-curly-spacing": [2, "always"],
+    "react/jsx-closing-bracket-location": [2, "after-props"],
+    "react/require-render-return": 2,
+    "react/jsx-key": 2,
+    "react/no-deprecated": 2,
+    "react/prefer-es6-class": 2,
+    "jsx-quotes": [2, "prefer-single"],
+    "flowtype/boolean-style": [2, "bool"],
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1,
+  }
+}

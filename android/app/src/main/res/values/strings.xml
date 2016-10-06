@@ -1,0 +1,7 @@
+<resources>
+
+
+    <string name="app_name">AutoLogin</string>
+    <string name="wifi_login_success">成功登入</string>
+    <string name="wifi_login_check_pw">登入失敗 請檢查帳號密碼</string>
+</resources>
