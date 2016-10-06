@@ -21,7 +21,7 @@ class NetworkChangeReceiver:BroadcastReceiver() {
     val action = intent.getAction()
     val account = WifiAccount(context)
     Log.d(Debug.TAG, "Receiver: Receive network event")
-    if (!account.isLogin()) {
+    if (!account.isLogin) {
       Log.i(Debug.TAG, "Receiver: Not login")
       return
     }
