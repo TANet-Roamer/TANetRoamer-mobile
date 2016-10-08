@@ -20,6 +20,7 @@ import org.jsoup.select.Elements
 import com.autologin.R
 import com.autologin.Debug
 /**
+ * @param context The android context
  * @param username The account for login
  * @param password The password for login
  */
@@ -63,6 +64,11 @@ class LoginWifi(private val context: Context, private val username: String?, pri
       return true
     }
 
+    /**
+     * Fetch google generate_204 page
+     *
+     * @return Response of fetching google generate_204 page
+     */
     private fun get204Response(): Response {
       return Jsoup
         .connect("http://${ip}/generate_204")
@@ -70,6 +76,11 @@ class LoginWifi(private val context: Context, private val username: String?, pri
         .execute()
     }
 
+    /**
+     * Send login and check result
+     *
+     * @return Successful login or not
+     */
     private fun doLogin(): Boolean {
       val loginPage = sendLogin()
       Log.i(Debug.TAG, "LoginTask: Send request")
@@ -83,6 +94,11 @@ class LoginWifi(private val context: Context, private val username: String?, pri
       return false
     }
 
+    /**
+     * Send login info
+     *
+     * @return Response of login page
+     */
     private fun sendLogin(): Response {
       return Jsoup
         .connect(WIFI_LOGIN_URL)
@@ -96,6 +112,12 @@ class LoginWifi(private val context: Context, private val username: String?, pri
         .execute()
     }
 
+    /**
+     * Return id of result message
+     *
+     * @param result Login result
+     * @return ID of result message
+     */
     private fun getNotifyText(result: Boolean) = if (result == true) {
       R.string.wifi_login_success
     } else {
