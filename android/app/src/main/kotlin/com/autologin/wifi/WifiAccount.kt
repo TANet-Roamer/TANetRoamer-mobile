@@ -29,13 +29,9 @@ class WifiAccount(context:Context) {
     prefEditor.apply()
   }
 
-  fun getUsername(): String? {
-    return if (isLogin) username else null
-  }
+  fun getUsername() = if (isLogin) username else null
 
-  fun getPassword(): String? {
-    return if (isLogin) password else null
-  }
+  fun getPassword() = if (isLogin) password else null
 
   companion object {
     val PREF_NAME = "CCULIFE_WIFI_PREF"

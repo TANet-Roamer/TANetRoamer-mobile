@@ -10,13 +10,9 @@ import java.util.ArrayList
 import java.util.Arrays
 
 class WifiAccountStoragePackage:ReactPackage {
-  override fun createJSModules(): List<Class<out JavaScriptModule>> {
-    return emptyList<Class<out JavaScriptModule>>()
-  }
+  override fun createJSModules() = emptyList<Class<out JavaScriptModule>>()
 
-  override fun createViewManagers(reactContext:ReactApplicationContext): List<ViewManager<*, *>> {
-    return emptyList<ViewManager<*, *>>()
-  }
+  override fun createViewManagers(reactContext:ReactApplicationContext) = emptyList<ViewManager<*, *>>()
 
   override fun createNativeModules(reactContext:ReactApplicationContext): List<NativeModule> {
     val modules = ArrayList<NativeModule>()

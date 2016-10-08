@@ -16,9 +16,7 @@ import com.facebook.react.bridge.Promise
 class WifiAccountStorageModule(reactContext: ReactApplicationContext): ReactContextBaseJavaModule(reactContext) {
   internal val account:WifiAccount = WifiAccount(reactContext)
 
-  override fun getName(): String {
-    return "WifiAccountStorage"
-  }
+  override fun getName() = "WifiAccountStorage"
 
   @ReactMethod
   fun setLoginInfo(username: String, password: String, promise: Promise) {
