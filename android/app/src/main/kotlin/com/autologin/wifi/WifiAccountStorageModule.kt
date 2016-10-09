@@ -14,7 +14,7 @@ import com.facebook.react.bridge.WritableMap
 import com.facebook.react.bridge.Promise
 
 class WifiAccountStorageModule(reactContext: ReactApplicationContext): ReactContextBaseJavaModule(reactContext) {
-  internal val account:WifiAccount = WifiAccount(reactContext)
+  internal val account = WifiAccount(reactContext)
 
   override fun getName() = "WifiAccountStorage"
 

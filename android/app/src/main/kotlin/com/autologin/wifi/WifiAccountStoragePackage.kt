@@ -6,17 +6,12 @@ import com.facebook.react.bridge.NativeModule
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.uimanager.ViewManager
 
-import java.util.ArrayList
-import java.util.Arrays
-
-class WifiAccountStoragePackage:ReactPackage {
+class WifiAccountStoragePackage : ReactPackage {
   override fun createJSModules() = emptyList<Class<out JavaScriptModule>>()
 
-  override fun createViewManagers(reactContext:ReactApplicationContext) = emptyList<ViewManager<*, *>>()
+  override fun createViewManagers(reactContext: ReactApplicationContext) = emptyList<ViewManager<*, *>>()
 
-  override fun createNativeModules(reactContext:ReactApplicationContext): List<NativeModule> {
-    val modules = ArrayList<NativeModule>()
-    modules.add(WifiAccountStorageModule(reactContext))
-    return modules
-  }
+  override fun createNativeModules(reactContext: ReactApplicationContext) = listOf<NativeModule>(
+    WifiAccountStorageModule(reactContext)
+  )
 }
