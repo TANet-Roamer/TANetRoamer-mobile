@@ -1,5 +1,6 @@
 /**
  * @flow
+ * @providesModule WifiAccountStorage
  */
 
 import { NativeModules } from 'react-native'

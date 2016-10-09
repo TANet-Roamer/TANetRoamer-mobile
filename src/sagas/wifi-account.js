@@ -10,7 +10,7 @@ import { pop } from '../actions/nav'
 import WifiAccountStorage from '../WifiAccountStorage'
 
 export function* fetchAccount(): Iterable<Object> {
-  const info: any = yield WifiAccountStorage.getLoginInfo()
+  const info = yield WifiAccountStorage.getLoginInfo()
   yield put(setAccount(info))
 }
 
