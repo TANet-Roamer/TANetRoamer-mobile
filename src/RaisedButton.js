@@ -26,6 +26,7 @@ class RaisedButton extends Component {
         shadowColor='black' />
     )
   }
+
   static propTypes = {
     ...MKButton.propTypes,
     enabled: PropTypes.bool.isRequired

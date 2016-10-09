@@ -5,17 +5,11 @@
 import { createStore, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import reducers from './reducers'
-import syncNavigator from './syncNavigator'
+import { middleware } from './syncNavigator'
 
 const sagaMiddleware = createSagaMiddleware()
 
-const store = createStore(reducers, applyMiddleware(sagaMiddleware, syncNavigator.middleware))
-
-// if (module.hot) {
-//   module.hot.accept('./reducers', () => {
-//     store.replaceReducer(require('./reducers').default)
-//   })
-// }
+const store = createStore(reducers, applyMiddleware(sagaMiddleware, middleware))
 
 store.runSaga = sagaMiddleware.run
 
