@@ -51,9 +51,10 @@ class LoginWifi(private val context: Context, private val username: String?, pri
         }
         Log.i(Debug.TAG, "LoginTask: Need login")
         val url = response.header("location") // Get redirect url
+        val cookies = response.cookies()
         Log.d(Debug.TAG, "LoginTask: URL: " + url)
         if (url?.startsWith("http://140.123.1.53") ?: false) { // It is ccu wireless login
-          return doLogin()
+          return doLogin(cookies)
         } else {
           Log.i(Debug.TAG, "LoginTask: Not ccu")
           return false
@@ -81,11 +82,12 @@ class LoginWifi(private val context: Context, private val username: String?, pri
      *
      * @return Successful login or not
      */
-    private fun doLogin(): Boolean {
-      val loginPage = sendLogin()
+    private fun doLogin(cookies: Map<String, String>): Boolean {
+      val loginPage = sendLogin(cookies)
       Log.i(Debug.TAG, "LoginTask: Send request")
       val page = Jsoup.parse(loginPage.body())
       val body = page.body().text()
+      Log.i(Debug.TAG, "LoginTask: Check login")
       if (body.contains("You can now use all our regular network services")) { // If success, body will contain
         Log.i(Debug.TAG, "LoginTask: Response logined")
         return true
@@ -99,14 +101,15 @@ class LoginWifi(private val context: Context, private val username: String?, pri
      *
      * @return Response of login page
      */
-    private fun sendLogin(): Response {
+    private fun sendLogin(cookies: Map<String, String>): Response {
       return Jsoup
         .connect(WIFI_LOGIN_URL)
-        .data("buttonclicked", "4")
+        .data("buttonClicked", "4")
         .data("redirect_url", "http://${ip}/generate_204")
         .data("err_flag", "0")
         .data("username", username)
         .data("password", password)
+        .cookies(cookies)
         .method(Connection.Method.POST)
         .followRedirects(true)
         .execute()
